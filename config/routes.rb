@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'sessions#index'
-  get 'sessions/about'
+  get 'sessions/about' => 'sessions#about'
   resources :cinemas
   resources :movies
   resources :users
