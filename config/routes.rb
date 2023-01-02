@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/index'
+  root 'sessions/index'
   get 'sessions/about'
   resources :cinemas
   resources :movies
