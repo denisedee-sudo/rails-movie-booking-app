@@ -14,6 +14,9 @@ class CinemasTest < ApplicationSystemTestCase
     visit cinemas_url
     click_on "New Cinema"
 
+    fill_in "Movie", with: @cinema.movie_id
+    fill_in "Seats", with: @cinema.seats
+    fill_in "Showing", with: @cinema.showing
     click_on "Create Cinema"
 
     assert_text "Cinema was successfully created"
@@ -24,6 +27,9 @@ class CinemasTest < ApplicationSystemTestCase
     visit cinemas_url
     click_on "Edit", match: :first
 
+    fill_in "Movie", with: @cinema.movie_id
+    fill_in "Seats", with: @cinema.seats
+    fill_in "Showing", with: @cinema.showing
     click_on "Update Cinema"
 
     assert_text "Cinema was successfully updated"

@@ -1,7 +1,6 @@
 class CinemasController < ApplicationController
-  # before_action :set_cinema, only: %i[ show edit update destroy ]
-  before_action :require_admin, only: [:index, :show, :edit, :update, :destroy]
-  layout 'admins'
+  before_action :set_cinema, only: %i[ show edit update destroy ]
+
   # GET /cinemas or /cinemas.json
   def index
     @cinemas = Cinema.all
@@ -66,6 +65,6 @@ class CinemasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cinema_params
-      params.fetch(:cinema, {})
+      params.require(:cinema).permit(:movie_id, :seats, :showing)
     end
 end

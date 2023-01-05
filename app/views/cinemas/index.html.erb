@@ -5,6 +5,9 @@
 <table>
   <thead>
     <tr>
+      <th>Movie</th>
+      <th>Seats</th>
+      <th>Showing</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +15,9 @@
   <tbody>
     <% @cinemas.each do |cinema| %>
       <tr>
+        <td><%= cinema.movie_id %></td>
+        <td><%= cinema.seats %></td>
+        <td><%= cinema.showing %></td>
         <td><%= link_to 'Show', cinema %></td>
         <td><%= link_to 'Edit', edit_cinema_path(cinema) %></td>
         <td><%= link_to 'Destroy', cinema, method: :delete, data: { confirm: 'Are you sure?' } %></td>
