@@ -1,33 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Belongs to:</strong>
-  <%= @booking.belongs_to %>
+  <strong>User:</strong>
+  <%= @booking.user %>
 </p>
 
 <p>
-  <strong>:</strong>
-  <%= @booking. %>
+  <strong>Movie:</strong>
+  <%= @booking.movie %>
 </p>
 
 <p>
-  <strong>Belongs to:</strong>
-  <%= @booking.belongs_to %>
-</p>
-
-<p>
-  <strong>:</strong>
-  <%= @booking. %>
-</p>
-
-<p>
-  <strong>Belongs to:</strong>
-  <%= @booking.belongs_to %>
-</p>
-
-<p>
-  <strong>:</strong>
-  <%= @booking. %>
+  <strong>Start time:</strong>
+  <%= @booking.start_time %>
 </p>
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
