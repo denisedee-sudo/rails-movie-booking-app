@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   # before_action :set_movie, only: %i[ show edit update destroy ]
   before_action :require_admin, only: [:index, :show, :edit, :update, :destroy]
-
+  layout 'admins'
   # GET /movies or /movies.json
   def index
     @movies = Movie.all
