@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[ show edit update destroy ]
-
+  # before_action :set_booking, only: %i[ show edit update destroy ]
+  before_action :require_admin, only: [:index, :show, :edit, :update, :destroy]
+  layout 'admins'
   # GET /bookings or /bookings.json
   def index
     @bookings = Booking.all
@@ -57,9 +58,16 @@ class BookingsController < ApplicationController
     end
   end
 
+  def booked
+    @bookings = Booking.all
+  end
+
+  def booked_edit
+    @booking = Booking.find(params[:id])
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_booking
+    def admin_booking
       @booking = Booking.find(params[:id])
     end
 

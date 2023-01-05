@@ -16,9 +16,6 @@
                   <% if current_user.admin? %>
                     <li><%= link_to "Admin", "/admin/index", method: "get", class: "nav-link text-green hover-lgreen hover-big" %></li>
                   <% end %>
-                  <li class="nav-item">
-                    <%= link_to "Book", "/admin/index", method: "get", class: "nav-link text-green hover-lgreen hover-big" %>
-                  </li>
                   <li><%= link_to "Profile", profile_path, method: "get", class: "nav-link text-green hover-lgreen hover-big" %></li>
                   <li><%= link_to "Log out", logout_path, method: "delete", class: "nav-link text-green hover-lgreen hover-big" %></li>
               <% else %> 

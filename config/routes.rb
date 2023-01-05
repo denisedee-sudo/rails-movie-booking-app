@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :bookings
   root 'sessions#index'
   get 'showing' => 'sessions#showing'
+  # get 'booked' => 'bookings#booked'
+  get 'showing' => 'sessions#showing'
   get '/profile/edit' => "users#profile_edit"
   patch '/profile/edit' => "users#profile_update"
   get '/profile' => "users#profile"
