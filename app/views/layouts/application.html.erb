@@ -10,12 +10,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="bg-secondary" >
+  <body class="bg-secondary text-orb text-pitch" >
     <%= render "shared/header" %>
-    <br />
-    <%# <%= content_for?(:admins_layout) ? yield(:admins_layout) : yield %>
-    <%= yield  %>
-    <br />
+    <%= content_for?(:admins_layout) ? yield(:admins_layout) : yield %>
+    <%# <%= yield  %>
     <%= render "shared/footer" %>
   </body>
 </html>

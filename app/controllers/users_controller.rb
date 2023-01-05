@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:profile, :profile_edit, :profile_update]
   before_action :require_admin, only: [:index, :show, :edit, :update, :destroy, :dashboard]
   
-  # layout 'admins'
+  layout 'admins'
 
   # GET /users or /users.json
   def index
@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+   set_user
   end
 
   # GET /users/new
@@ -21,6 +22,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    set_user
   end
 
   # POST /users or /users.json
@@ -63,10 +65,22 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find_by(id:current_user.id)
-    @toys = @user.toys
   end
   def profile_edit
     @user = User.find_by(id:current_user.id)
+  end
+
+  def profile_update
+    respond_to do |format|
+      @user = User.find_by(id:current_user.id)
+      if @user.update(user_params)
+        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private

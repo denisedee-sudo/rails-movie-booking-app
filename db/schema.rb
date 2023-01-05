@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 2023_01_02_042101) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.boolean "admin"
+    t.boolean "admin", default: false, null: false
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.bigint "phone"
-    t.string "password"
+    t.string "phone"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
