@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :require_user, only: [:profile, :profile_edit, :profile_update]
   before_action :require_admin, only: [:index, :show, :edit, :update, :destroy, :dashboard]
   
-  layout 'admins'
+  # layout 'admins'
 
   # GET /users or /users.json
   def index
@@ -59,6 +59,14 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def profile
+    @user = User.find_by(id:current_user.id)
+    @toys = @user.toys
+  end
+  def profile_edit
+    @user = User.find_by(id:current_user.id)
   end
 
   private
