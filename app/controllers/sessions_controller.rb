@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     def index
     end
 
-    def about
+    def showing
     end
 
     def new
