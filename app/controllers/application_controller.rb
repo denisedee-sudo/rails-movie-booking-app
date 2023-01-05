@@ -11,7 +11,14 @@ class ApplicationController < ActionController::Base
     end
     
     def require_admin
-      redirect_to '/' unless current_user && current_user.admin?
+      # redirect_to '/' unless current_user && current_user.admin?
+     if (current_user && current_user.admin?)
+      true
+     elsif(current_user)
+      redirect_to '/'
+     else
+      redirect_to '/login'
+     end
     end  
     
 end
