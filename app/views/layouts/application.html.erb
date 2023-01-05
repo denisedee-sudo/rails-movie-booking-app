@@ -13,7 +13,11 @@
   <body class="bg-secondary" >
     <%= render "shared/header" %>
     <br />
+    <%= if current_user %>
+    <%= content_for?(:admins_layout) ? yield(:admins_layout) : yield %>
+    <% else %>
     <%= yield %>
+    <%= end  %>
     <br />
     <%= render "shared/footer" %>
   </body>
