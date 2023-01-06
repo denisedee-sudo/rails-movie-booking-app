@@ -4,6 +4,7 @@ set -o errexit
 
 bundle install
 bundle exec rails webpacker:install
+yarn add @popperjs/core
 bundle exec rake assets:precompile
 bundle exec rake assets:clean
 rails db:migrate
