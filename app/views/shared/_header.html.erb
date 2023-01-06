@@ -1,0 +1,38 @@
+    <nav class="navbar navbar-expand-lg bg-pitch navbar-dark text-cinemax">
+        <div class="container-fluid">
+          <a class="navbar-brand hover-big text-lgreen" href="#">Cinemax</a>
+          <button class="navbar-toggler hover-lgreen type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav text-center">
+              <li class="nav-item">
+                <%= link_to "Home", root_path, method: "get", class: "nav-link text-green hover-lgreen hover-big" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Showing", "/showings", method: "get", class: "nav-link text-green hover-lgreen hover-big" %>
+              </li>
+              <% if current_user %> 
+                  <% if current_user.admin? %>
+                    <li><%= link_to "Admin", "/admin/index", method: "get", class: "nav-link text-green hover-lgreen hover-big" %></li>
+                  <% end %>
+                  <li><%= link_to "Profile", profile_path, method: "get", class: "nav-link text-green hover-lgreen hover-big" %></li>
+                  <li><%= link_to "Log out", logout_path, method: "delete", class: "nav-link text-green hover-lgreen hover-big" %></li>
+              <% else %> 
+                  <li><%= link_to "Login", '/login', class: "nav-link text-green hover-lgreen hover-big" %></a></li> 
+                  <li><%= link_to "Signup", '/signup', class: "nav-link text-green hover-lgreen hover-big" %></a></li>
+              <% end %> 
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown link
+                </a>
+                <ul class="dropdown-menu bg-dark text-center">
+                  <li><a class="dropdown-item text-white" href="#">Action</a></li>
+                  <li><a class="dropdown-item text-white" href="#">Another action</a></li>
+                  <li><a class="dropdown-item text-white" href="#">Something else here</a></li>
+                </ul>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+    </nav>
