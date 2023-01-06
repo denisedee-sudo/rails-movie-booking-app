@@ -20,9 +20,11 @@
         <td><%= showing.movie_id %></td>
         <td><%= showing.show_date %></td>
         <td><%= showing.show_time %></td>
+        <% if current_user.admin? %>
         <td><%= link_to 'Show', showing %></td>
         <td><%= link_to 'Edit', edit_showing_path(showing) %></td>
         <td><%= link_to 'Destroy', showing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end  %>
       </tr>
     <% end %>
   </tbody>

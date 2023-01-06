@@ -1,6 +1,6 @@
 class CinemasController < ApplicationController
   # before_action :set_cinema, only: %i[ show edit update destroy ]
-  before_action :require_admin, only: [:index, :show, :edit, :update, :destroy]
+  before_action :require_admin, only: [:index, :create, :show, :edit, :update, :destroy]
   layout 'admins'
 
   # GET /cinemas or /cinemas.json

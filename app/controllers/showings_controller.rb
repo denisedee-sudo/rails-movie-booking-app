@@ -1,5 +1,9 @@
 class ShowingsController < ApplicationController
-  before_action :set_showing, only: %i[ show edit update destroy ]
+  # before_action :set_showing, only: %i[ show edit update destroy ]
+  before_action :require_admin, only: [:create, :edit, :update, :destroy]
+  
+  layout 'admins'
+
 
   # GET /showings or /showings.json
   def index

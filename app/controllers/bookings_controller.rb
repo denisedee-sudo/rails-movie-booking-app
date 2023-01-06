@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: %i[ show edit update destroy ]
+  before_action :require_user, only: [:create]
   before_action :require_admin, only: [:index, :show, :edit, :update, :destroy]
   layout 'admins'
   # GET /bookings or /bookings.json
