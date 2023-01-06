@@ -31,5 +31,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Showing', new_showing_path %>
+<% if current_user  && current_user.admin? %>
+  <%= link_to 'New Showing', new_showing_path %>
+<% end  %>

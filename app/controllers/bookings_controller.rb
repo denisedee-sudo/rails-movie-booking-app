@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: %i[ show edit update destroy ]
-  before_action :require_user, only: [:create]
-  before_action :require_admin, only: [:index, :show, :edit, :update, :destroy]
+  before_action :require_user, only: [:index, :create]
+  before_action :require_admin, only: [:show, :edit, :update, :destroy]
   layout 'admins'
   # GET /bookings or /bookings.json
   def index
@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
   # POST /bookings or /bookings.json
   def create
     @booking = Booking.new(booking_params)
-
+    @user = @booking.user
     respond_to do |format|
       if @booking.save
         format.html { redirect_to booking_url(@booking), notice: "Booking was successfully created." }
@@ -59,13 +59,13 @@ class BookingsController < ApplicationController
     end
   end
 
-  def booked
-    @bookings = Booking.all
-  end
+  # def booked
+  #   @bookings = Booking.all
+  # end
 
-  def booked_edit
-    @booking = Booking.find(params[:id])
-  end
+  # def booked_edit
+  #   @booking = Booking.find(params[:id])
+  # end
   private
     # Use callbacks to share common setup or constraints between actions.
     def admin_booking

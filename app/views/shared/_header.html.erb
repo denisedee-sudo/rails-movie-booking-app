@@ -10,7 +10,7 @@
                 <%= link_to "Home", root_path, method: "get", class: "nav-link text-green hover-lgreen hover-big" %>
               </li>
               <li class="nav-item">
-                <%= link_to "Showing", "/showing", method: "get", class: "nav-link text-green hover-lgreen hover-big" %>
+                <%= link_to "Showing", "/showings", method: "get", class: "nav-link text-green hover-lgreen hover-big" %>
               </li>
               <% if current_user %> 
                   <% if current_user.admin? %>
