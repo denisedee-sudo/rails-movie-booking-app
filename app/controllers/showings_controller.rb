@@ -3,8 +3,6 @@ class ShowingsController < ApplicationController
   before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
   
   layout 'admins'
-
-
   # GET /showings or /showings.json
   def index
     @showings = Showing.all
@@ -69,6 +67,6 @@ class ShowingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def showing_params
-      params.require(:showing).permit(:cinema_id, :movie_id, :show_date, :show_time)
+      params.require(:showing).permit(:cinema_id, :movie_id, :show_time)
     end
 end

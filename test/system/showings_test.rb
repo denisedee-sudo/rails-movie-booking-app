@@ -16,7 +16,6 @@ class ShowingsTest < ApplicationSystemTestCase
 
     fill_in "Cinema", with: @showing.cinema_id
     fill_in "Movie", with: @showing.movie_id
-    fill_in "Show date", with: @showing.show_date
     fill_in "Show time", with: @showing.show_time
     click_on "Create Showing"
 
@@ -30,7 +29,6 @@ class ShowingsTest < ApplicationSystemTestCase
 
     fill_in "Cinema", with: @showing.cinema_id
     fill_in "Movie", with: @showing.movie_id
-    fill_in "Show date", with: @showing.show_date
     fill_in "Show time", with: @showing.show_time
     click_on "Update Showing"
 

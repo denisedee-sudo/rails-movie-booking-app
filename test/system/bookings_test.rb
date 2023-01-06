@@ -14,9 +14,9 @@ class BookingsTest < ApplicationSystemTestCase
     visit bookings_url
     click_on "New Booking"
 
-    fill_in "Movie", with: @booking.movie
-    fill_in "Start time", with: @booking.start_time
-    fill_in "User", with: @booking.user
+    fill_in "Cinema", with: @booking.cinema_id
+    fill_in "Showing", with: @booking.showing_id
+    fill_in "User", with: @booking.user_id
     click_on "Create Booking"
 
     assert_text "Booking was successfully created"
@@ -27,9 +27,9 @@ class BookingsTest < ApplicationSystemTestCase
     visit bookings_url
     click_on "Edit", match: :first
 
-    fill_in "Movie", with: @booking.movie
-    fill_in "Start time", with: @booking.start_time
-    fill_in "User", with: @booking.user
+    fill_in "Cinema", with: @booking.cinema_id
+    fill_in "Showing", with: @booking.showing_id
+    fill_in "User", with: @booking.user_id
     click_on "Update Booking"
 
     assert_text "Booking was successfully updated"

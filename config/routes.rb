@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :cinemas
   resources :showings
   resources :bookings
+  resources :cinemas
   root 'sessions#index'
   get 'showing' => 'sessions#showing'
   # get 'booked' => 'bookings#booked'

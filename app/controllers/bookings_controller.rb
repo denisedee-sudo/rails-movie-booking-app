@@ -24,6 +24,7 @@ class BookingsController < ApplicationController
   # POST /bookings or /bookings.json
   def create
     @booking = Booking.new(booking_params)
+
     respond_to do |format|
       if @booking.save
         format.html { redirect_to booking_url(@booking), notice: "Booking was successfully created." }
@@ -58,21 +59,14 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def booked
-  #   @bookings = Booking.all
-  # end
-
-  # def booked_edit
-  #   @booking = Booking.find(params[:id])
-  # end
   private
     # Use callbacks to share common setup or constraints between actions.
-    def admin_booking
+    def set_booking
       @booking = Booking.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def booking_params
-      params.require(:booking).permit(:user, :movie, :start_time)
+      params.require(:booking).permit(:user_id, :showing_id, :cinema_id)
     end
 end
