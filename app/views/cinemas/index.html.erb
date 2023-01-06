@@ -5,10 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Movie</th>
+      <th>Cinema#</th>
       <th>Seats</th>
-      <th>Work hours start</th>
-      <th>Work hours end</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +14,8 @@
   <tbody>
     <% @cinemas.each do |cinema| %>
       <tr>
-        <td><%= cinema.movie_id %></td>
+        <td><%= cinema.id %></td>
         <td><%= cinema.seats %></td>
-        <td><%= cinema.work_hours_start %></td>
-        <td><%= cinema.work_hours_end %></td>
         <td><%= link_to 'Show', cinema %></td>
         <td><%= link_to 'Edit', edit_cinema_path(cinema) %></td>
         <td><%= link_to 'Destroy', cinema, method: :delete, data: { confirm: 'Are you sure?' } %></td>
