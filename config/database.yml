@@ -85,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: MovieBooking_production
-  username: MovieBooking
-  password: <%= ENV['MOVIEBOOKING_DATABASE_PASSWORD'] %>
+  database: cinema
+  username: denise
+  password: <%= ENV['gE5iY2L0eHouSjzHXvr7BUXgNo3Hkb17'] %>
