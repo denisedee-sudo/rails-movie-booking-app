@@ -15,17 +15,22 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
+        <% if current_user.id == booking.user_id %>
         <td><%= booking.user_id %></td>
         <td><%= booking.showing_id %></td>
         <td><%= booking.cinema_id %></td>
         <td><%= link_to 'Show', booking %></td>
+        <% end %>
+        <% if current_user.admin?  %>
         <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
         <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end  %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user.admin?  %>
 <%= link_to 'New Booking', new_booking_path %>
+<% end  %>

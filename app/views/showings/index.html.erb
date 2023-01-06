@@ -19,13 +19,16 @@
         <td><%= showing.movie_id %></td>
         <td><%= showing.show_time %></td>
         <td><%= link_to 'Show', showing %></td>
+        <% if current_user.admin?  %>
         <td><%= link_to 'Edit', edit_showing_path(showing) %></td>
         <td><%= link_to 'Destroy', showing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end  %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Showing', new_showing_path %>
+<% if current_user.admin?  %>
+  <%= link_to 'New Showing', new_showing_path %>
+<% end  %>
