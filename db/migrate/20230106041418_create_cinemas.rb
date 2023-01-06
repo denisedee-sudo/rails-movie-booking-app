@@ -3,7 +3,6 @@ class CreateCinemas < ActiveRecord::Migration[6.1]
     create_table :cinemas do |t|
       t.references :movie, null: false, foreign_key: true
       t.integer :seats
-      t.time :store_hours
 
       t.timestamps
     end

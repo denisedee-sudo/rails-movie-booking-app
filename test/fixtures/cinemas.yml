@@ -3,9 +3,11 @@
 one:
   movie: one
   seats: 1
-  showing: 2023-01-06 00:15:38
+  work_hours_start: 2023-01-06 12:14:18
+  work_hours_end: 2023-01-06 12:14:18
 
 two:
   movie: two
   seats: 1
-  showing: 2023-01-06 00:15:38
+  work_hours_start: 2023-01-06 12:14:18
+  work_hours_end: 2023-01-06 12:14:18

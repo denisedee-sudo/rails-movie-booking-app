@@ -16,7 +16,8 @@ class CinemasTest < ApplicationSystemTestCase
 
     fill_in "Movie", with: @cinema.movie_id
     fill_in "Seats", with: @cinema.seats
-    fill_in "Showing", with: @cinema.showing
+    fill_in "Work hours end", with: @cinema.work_hours_end
+    fill_in "Work hours start", with: @cinema.work_hours_start
     click_on "Create Cinema"
 
     assert_text "Cinema was successfully created"
@@ -29,7 +30,8 @@ class CinemasTest < ApplicationSystemTestCase
 
     fill_in "Movie", with: @cinema.movie_id
     fill_in "Seats", with: @cinema.seats
-    fill_in "Showing", with: @cinema.showing
+    fill_in "Work hours end", with: @cinema.work_hours_end
+    fill_in "Work hours start", with: @cinema.work_hours_start
     click_on "Update Cinema"
 
     assert_text "Cinema was successfully updated"
