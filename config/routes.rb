@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :showings
   resources :cinemas
   resources :bookings
   root 'sessions#index'
