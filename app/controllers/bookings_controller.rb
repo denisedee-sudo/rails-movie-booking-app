@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: %i[ show edit update destroy ]
-  before_action :require_user, only: [:index, :new, :create]
-  before_action :require_admin, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, only: [:index, :new, :create, :destroy]
+  before_action :require_admin, only: [:show, :edit, :update]
   layout 'admins'
   # GET /bookings or /bookings.json
   def index
@@ -29,8 +29,8 @@ class BookingsController < ApplicationController
     @booking.user_id ||= current_user.id
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to booking_url(@booking), notice: "Booking was successfully created." }
-        format.json { render :show, status: :created, location: @booking }
+        format.html { redirect_to bookings_url, notice: "Booking was successfully created." }
+        format.json { render :index, status: :created, location: @booking }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
