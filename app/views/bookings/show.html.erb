@@ -3,6 +3,9 @@
 <p>
   <strong>User:</strong>
   <%= @booking.user_id %>
+  <br />
+  <strong>User Name:</strong>
+  <%= @booking.user.first_name %>
 </p>
 
 <p>
@@ -12,7 +15,15 @@
 
 <p>
   <strong>Cinema:</strong>
-  <%= @booking.cinema_id %>
+  <%= @booking.showing.cinema_id %>
+</p>
+
+<p>
+  <strong>Movie no:</strong>
+  <%= @booking.showing.movie_id %>
+  <br />
+  <strong>Movie:</strong>
+  <%= @booking.showing.movie.title %>
 </p>
 
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
