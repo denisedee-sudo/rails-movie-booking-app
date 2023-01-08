@@ -10,6 +10,7 @@ class ShowingsController < ApplicationController
 
   # GET /showings/1 or /showings/1.json
   def show
+    set_showing
   end
 
   # GET /showings/new
@@ -51,8 +52,8 @@ class ShowingsController < ApplicationController
 
   # DELETE /showings/1 or /showings/1.json
   def destroy
+    set_showing
     @showing.destroy
-
     respond_to do |format|
       format.html { redirect_to showings_url, notice: "Showing was successfully destroyed." }
       format.json { head :no_content }

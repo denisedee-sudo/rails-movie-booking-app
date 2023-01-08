@@ -2,23 +2,18 @@
 
 <p>
   <strong>Movie:</strong>
-  <%= @cinema.movie_id %>
-</p>
+    <% @showings.each do |showing| %>
+      <tr>
+        <td><%= showing.movie.title %></td>
 
+      </tr>
+    <% end %>
+</p>
 <p>
   <strong>Seats:</strong>
   <%= @cinema.seats %>
 </p>
 
-<p>
-  <strong>Work hours start:</strong>
-  <%= @cinema.work_hours_start %>
-</p>
-
-<p>
-  <strong>Work hours end:</strong>
-  <%= @cinema.work_hours_end %>
-</p>
 
 <%= link_to 'Edit', edit_cinema_path(@cinema) %> |
 <%= link_to 'Back', cinemas_path %>

@@ -10,6 +10,8 @@ class CinemasController < ApplicationController
 
   # GET /cinemas/1 or /cinemas/1.json
   def show
+    set_cinema
+    @showings = @cinema.showings
   end
 
   # GET /cinemas/new
@@ -19,6 +21,7 @@ class CinemasController < ApplicationController
 
   # GET /cinemas/1/edit
   def edit
+    set_cinema
   end
 
   # POST /cinemas or /cinemas.json
@@ -51,6 +54,7 @@ class CinemasController < ApplicationController
 
   # DELETE /cinemas/1 or /cinemas/1.json
   def destroy
+    set_cinema
     @cinema.destroy
 
     respond_to do |format|

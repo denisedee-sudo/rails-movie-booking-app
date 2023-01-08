@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1 or /bookings/1.json
   def show
+    set_booking
   end
 
   # GET /bookings/new
