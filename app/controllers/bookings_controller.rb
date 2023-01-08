@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: %i[ show edit update destroy ]
-  before_action :require_user, only: [:index, :create]
+  before_action :require_user, only: [:index, :new, :create]
   before_action :require_admin, only: [:show, :edit, :update, :destroy]
   layout 'admins'
   # GET /bookings or /bookings.json
@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1/edit
   def edit
+    set_booking
   end
 
   # POST /bookings or /bookings.json
@@ -39,6 +40,7 @@ class BookingsController < ApplicationController
 
   # PATCH/PUT /bookings/1 or /bookings/1.json
   def update
+    set_booking
     respond_to do |format|
       if @booking.update(booking_params)
         format.html { redirect_to booking_url(@booking), notice: "Booking was successfully updated." }
@@ -52,8 +54,8 @@ class BookingsController < ApplicationController
 
   # DELETE /bookings/1 or /bookings/1.json
   def destroy
+    set_booking
     @booking.destroy
-
     respond_to do |format|
       format.html { redirect_to bookings_url, notice: "Booking was successfully destroyed." }
       format.json { head :no_content }
@@ -68,6 +70,6 @@ class BookingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def booking_params
-      params.require(:booking).permit(:user_id, :showing_id, :cinema_id)
+      params.require(:booking).permit(:user_id, :showing_id)
     end
 end

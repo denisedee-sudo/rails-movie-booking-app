@@ -41,6 +41,7 @@ class CinemasController < ApplicationController
 
   # PATCH/PUT /cinemas/1 or /cinemas/1.json
   def update
+    set_cinema
     respond_to do |format|
       if @cinema.update(cinema_params)
         format.html { redirect_to cinema_url(@cinema), notice: "Cinema was successfully updated." }

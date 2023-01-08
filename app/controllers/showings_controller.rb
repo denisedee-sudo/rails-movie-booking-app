@@ -6,6 +6,7 @@ class ShowingsController < ApplicationController
   # GET /showings or /showings.json
   def index
     @showings = Showing.all
+    
   end
 
   # GET /showings/1 or /showings/1.json
@@ -20,6 +21,7 @@ class ShowingsController < ApplicationController
 
   # GET /showings/1/edit
   def edit
+    set_showing
   end
 
   # POST /showings or /showings.json
@@ -39,6 +41,7 @@ class ShowingsController < ApplicationController
 
   # PATCH/PUT /showings/1 or /showings/1.json
   def update
+    set_showing
     respond_to do |format|
       if @showing.update(showing_params)
         format.html { redirect_to showing_url(@showing), notice: "Showing was successfully updated." }

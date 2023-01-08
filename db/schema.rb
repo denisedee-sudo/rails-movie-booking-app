@@ -15,10 +15,8 @@ ActiveRecord::Schema.define(version: 2023_01_06_045712) do
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "showing_id", null: false
-    t.integer "cinema_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cinema_id"], name: "index_bookings_on_cinema_id"
     t.index ["showing_id"], name: "index_bookings_on_showing_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -57,7 +55,6 @@ ActiveRecord::Schema.define(version: 2023_01_06_045712) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "bookings", "cinemas"
   add_foreign_key "bookings", "showings"
   add_foreign_key "bookings", "users"
   add_foreign_key "showings", "cinemas"
