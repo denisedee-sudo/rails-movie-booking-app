@@ -6,7 +6,7 @@ class ShowingsController < ApplicationController
   # GET /showings or /showings.json
   def index
     @showings = Showing.all
-    
+    # @booking = Booking.new(user_id: current_user.id)
   end
 
   # GET /showings/1 or /showings/1.json
