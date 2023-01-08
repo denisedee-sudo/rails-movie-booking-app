@@ -5,17 +5,19 @@
 <table>
   <thead>
     <tr>
-      <th>Cinema</th>
+      <th>Cinema#</th>
+      <th>Cinema Seats</th>
       <th>Movie</th>
       <th>Show time</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody  class="text-center">
     <% @showings.each do |showing| %>
       <tr>
         <td><%= showing.cinema_id %></td>
+        <td><%= showing.cinema.seats %></td>
         <td><%= showing.movie_id %> <%= showing.movie.title %></td>
         <td><%= showing.show_time %></td>
       <% if current_user %>

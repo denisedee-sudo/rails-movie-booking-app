@@ -8,7 +8,9 @@
       <th>User</th>
       <th>Showing</th>
       <th>Cinema</th>
-      <th colspan="3"></th>
+      <th>Movie</th>
+      <th>Time</th>
+      <th colspan="5"></th>
     </tr>
   </thead>
 
@@ -22,6 +24,7 @@
         <td><%= booking.showing_id %></td>
         <td><%= booking.showing.cinema_id %></td>
         <td><%= booking.showing.movie.title %></td>
+        <td><%= booking.showing.show_time %></td>
         <td><%= link_to 'Show', booking %></td>
         <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
